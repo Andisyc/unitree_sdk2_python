@@ -40,6 +40,7 @@ class UserInterface:
             return None
 
     def terminal_handle(self):
+        # receive user input
         input_str = input("Enter id or name: \n")
 
         if input_str == "list":
@@ -84,6 +85,7 @@ if __name__ == "__main__":
     print("Input \"list\" to list all test option ...")
 
     while True: # main loop
+        # receive and handle user input
         user_interface.terminal_handle()
 
         print(f"Updated Test Option: Name = {test_option.name}, ID = {test_option.id}")
