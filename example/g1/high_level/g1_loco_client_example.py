@@ -7,7 +7,7 @@ from unitree_sdk2py.g1.loco.g1_loco_client import LocoClient
 import math
 from dataclasses import dataclass
 
-# 装饰器相当于
+# 装饰器相当于将装饰的函数或类作为参数输入进装饰器函数或类中形成新对象
 @dataclass
 class TestOption:
     name: str
@@ -92,16 +92,25 @@ if __name__ == "__main__":
 
         print(f"Updated Test Option: Name = {test_option.name}, ID = {test_option.id}")
 
+        # slow down motion to safty
         if test_option.id == 0:
             sport_client.Damp()
+        
+        # get down then stand up
         elif test_option.id == 1:
             sport_client.Damp()
             time.sleep(0.5)
             sport_client.Squat2StandUp()
+        
+        # stand up then get down
         elif test_option.id == 2:
             sport_client.StandUp2Squat()
+        
+        # move forward
         elif test_option.id == 3:
             sport_client.Move(0.3,0,0)
+        
+        # move backward
         elif test_option.id == 4:
             sport_client.Move(0,0.3,0)
         elif test_option.id == 5:
