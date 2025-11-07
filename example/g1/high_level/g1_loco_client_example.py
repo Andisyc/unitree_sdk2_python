@@ -43,6 +43,7 @@ class UserInterface:
         # receive user input
         input_str = input("Enter id or name: \n")
 
+        # let user check out all options
         if input_str == "list":
             self.test_option_.name = None
             self.test_option_.id = None
@@ -50,6 +51,7 @@ class UserInterface:
                 print(f"{option.name}, id: {option.id}")
             return
 
+        # choosing option
         for option in option_list:
             if input_str == option.name or self.convert_to_int(input_str) == option.id:
                 self.test_option_.name = option.name
@@ -71,7 +73,7 @@ if __name__ == "__main__":
     ChannelFactoryInitialize(0, sys.argv[1])
 
     # initialize empty data container
-    test_option = TestOption(name=None, id=None) 
+    test_option = TestOption(name=None, id=None)
 
     # initialize user interface
     user_interface = UserInterface()
@@ -85,7 +87,7 @@ if __name__ == "__main__":
     print("Input \"list\" to list all test option ...")
 
     while True: # main loop
-        # receive and handle user input
+        # receive and select user input
         user_interface.terminal_handle()
 
         print(f"Updated Test Option: Name = {test_option.name}, ID = {test_option.id}")
