@@ -7,6 +7,7 @@ from unitree_sdk2py.g1.loco.g1_loco_client import LocoClient
 import math
 from dataclasses import dataclass
 
+# 装饰器相当于
 @dataclass
 class TestOption:
     name: str
@@ -65,18 +66,24 @@ if __name__ == "__main__":
     print("WARNING: Please ensure there are no obstacles around the robot while running this example.")
     input("Press Enter to continue...")
 
+    # read in user input
     ChannelFactoryInitialize(0, sys.argv[1])
 
+    # initialize empty data container
     test_option = TestOption(name=None, id=None) 
+
+    # initialize user interface
     user_interface = UserInterface()
     user_interface.test_option_ = test_option
 
-    sport_client = LocoClient()  
+    # initialize action interface
+    sport_client = LocoClient()
     sport_client.SetTimeout(10.0)
     sport_client.Init()
 
     print("Input \"list\" to list all test option ...")
-    while True:
+
+    while True: # main loop
         user_interface.terminal_handle()
 
         print(f"Updated Test Option: Name = {test_option.name}, ID = {test_option.id}")
