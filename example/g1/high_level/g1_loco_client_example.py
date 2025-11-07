@@ -113,22 +113,38 @@ if __name__ == "__main__":
         # move backward
         elif test_option.id == 4:
             sport_client.Move(0,0.3,0)
+        
+        # rotate body
         elif test_option.id == 5:
             sport_client.Move(0,0,0.3)
+        
+        # roughly horse stand
         elif test_option.id == 6:
             sport_client.LowStand()
+
+        # roughly normal stand
         elif test_option.id == 7:
             sport_client.HighStand()
+        
+        # zero out all
         elif test_option.id == 8:
             sport_client.ZeroTorque()
+        
+        # wave hand without rotate
         elif test_option.id == 9:
             sport_client.WaveHand()
+        
+        # wave hand with rotate
         elif test_option.id == 10:
             sport_client.WaveHand(True)
+        
+        # shake hand
         elif test_option.id == 11:
             sport_client.ShakeHand()
             time.sleep(3)
             sport_client.ShakeHand()
+        
+        # stand up from lie down
         elif test_option.id == 12:
             sport_client.Damp()
             time.sleep(0.5)
